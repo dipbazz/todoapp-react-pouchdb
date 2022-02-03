@@ -1,16 +1,15 @@
 import React from "react";
 import { useDB, useFind } from "react-pouchdb/cjs";
-import { DBNAME } from "./db";
 import Item from "./Item";
 
 function ListItems() {
-  const items = useFind(DBNAME, {
+  const items = useFind({
     selector: {
       title: { $gte: null }
     },
     sort: ["title"]
   })
-  const db = useDB(DBNAME);
+  const db = useDB();
 
   const addTodoItem = (e) => {
     e.preventDefault();

@@ -1,9 +1,8 @@
 import React from "react";
 import { useDB } from "react-pouchdb/cjs";
-import { DBNAME } from "./db";
 
 function Item({ item }) {
-    const db = useDB(DBNAME);
+    const db = useDB();
     const deleteTodo = (item) => {
         db.remove(item);
     }

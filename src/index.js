@@ -4,14 +4,14 @@ import './index.css';
 import ListItems from './ListItems';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { PouchDB } from 'react-pouchdb';
 import { DBNAME } from './db';
+import PouchDB from 'react-pouchdb/cjs/PouchDB';
 
 ReactDOM.render(
   <React.StrictMode>
     <PouchDB name={DBNAME}>
       <Suspense fallback="loading...">
-        <ListItems items={[{id: 1, title: "this is a title"}]} />
+        <ListItems />
       </Suspense>
     </PouchDB>
   </React.StrictMode>,
