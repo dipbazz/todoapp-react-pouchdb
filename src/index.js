@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { PouchDB } from 'react-pouchdb';
 import './index.css';
-import App from './App';
+import ListItems from './ListItems';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
+import { PouchDB } from 'react-pouchdb';
+import { DBNAME } from './db';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PouchDB name="todo">
+    <PouchDB name={DBNAME}>
       <Suspense fallback="loading...">
-        <App />
+        <ListItems items={[{id: 1, title: "this is a title"}]} />
       </Suspense>
     </PouchDB>
   </React.StrictMode>,
