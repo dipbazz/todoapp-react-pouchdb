@@ -17,14 +17,16 @@ function ListItems() {
     const { target: { elements }} = e;
     const todo = elements.todo;
     db.post({
-      title: todo.value
+      title: todo.value,
+      isCompleted: false,
+      createdAt: new Date().toISOString()
     }).then(function(response) {
       todo.value = ''
     });
   };
 
-  return <div className="min-h-screen bg-gray-50 py-6 flex flex-col justify-center relative overflow-hidden sm:py-12">
-          <div className="relative px-6 pb-8 bg-white shadow-xl ring-1 ring-gray-900/5 sm:max-w-lg sm:mx-auto sm:rounded-lg sm:px-10">
+  return <div className="min-h-screen bg-gray-50 py-6 flex flex-col relative overflow-hidden sm:py-12">
+          <div className="relative px-6 pb-8 bg-white shadow-xl ring-1 ring-gray-900/5 sm:max-w-lg sm:mx-auto sm:rounded-lg sm:px-10" style={{minWidth: '600px'}}>
             <div className="max-w-md mx-auto">
               <div className="divide-y divide-gray-300/50">
                 <div className="py-8 text-base leading-7 space-y-6 text-gray-600">
